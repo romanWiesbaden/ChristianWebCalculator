@@ -15,13 +15,10 @@ public class GreetingController {
         // Hier legen wir das Paar Schlüssel und den Wert (пара ключ - значение) mit der Hilfe addAttribute
         model.addAttribute("name", name);
 
-        // Wir übergeben die folgenden Parameter der HTTP Request ind die View und geben sie zu dem Benutzer
-        // In den Parametern geben wir Model an. Die Model wird an die View weitergeleitet und die der View mit
-        // Hilfe des Schablonizator Thymeleave bekommen wir den Zugang zu dieser Zeile
-        // man kann auch ausser schlüssel noch den Wert hinlegen, die mit der Hilfe der Konkatanation erstellt wird
-        // "Hello,  " +name + " "
-      //  System.out.println("Hello,  " +name + " ");
-        // Модель будет передана в представление. И в представление с помощью шаблонизатора таймлиф
+
+        // Model wird an die View weitergeleitet
+        // und in der View mit Hilfe des Schablonizator
+        // erhalten wir den Zugang zu der Zeile
         // мы получим доступ к строке System.out.println("Hello,  " +name + " ");
         return "greeting";
     }
@@ -35,6 +32,12 @@ public class GreetingController {
     // я использую анатацию RequestParam
     // В строке будет лежать одно из четерых значений
     // модель нужна для передачи результата от контроллера к представлению
+
+    // Der benutzer auf die unter angegebene Adresse kann in diese Methode des Controllers
+    // gelangen. Jetzt muss ich von dem Benutzer 3 Parameter des HTTP Get Requests erhalten.
+    // Dafür benutze ich Annotation RequestParam
+    // in dem String liegt ein des vier Werten
+    // Model brauch man für die Übergabe des Ergebnisses von dem Kontroller zu der View
 @GetMapping("/calculator")
 public String calculator(@RequestParam("a") int a, @RequestParam("b") int b, @RequestParam("action") String action, Model model ){
         double result;
@@ -58,11 +61,12 @@ public String calculator(@RequestParam("a") int a, @RequestParam("b") int b, @Re
 
         }
 
-//        Das Ergebnis kehren wir mit Hilfe vom Model an die View zurück.
+//        Das Ergebnis kehren wir mit Hilfe vom Model an die View  mit dem Schlüssel zurück.
 //    Результат мы сможем передаст с помощью модели в представление
     // по ключу рresult мы поместим значение переменной result
     model.addAttribute("result", result);
         // Теперь нам нужно создать html преставление, где result будет отображен
+    //Jetzt müssen wir die View erstellen, wo result wiedergegeben wird
         return "calculator";
 }
 
