@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+
+<!--Hier wende ich an den Schlüssel mit Hilfe von ${}. Thymeleave wendet sich an das Model, bekommt dern Wert durch den Schlüssel name.-->
+<!--Hier müssen wir mit Hilfe von Thymeleave an den Wert durch das Schlüssel wenden-->
+<!--Mit Thymeleaf wiedergebe ich das Ergebnis, dass aus dem Model kommt-->
+<!--Строку нужно генерировать динамически-->
+<!--Поэтому мы используем таймлиф-->
+<!--С помощью аттрибута th:text я получу доступ к результату из модели ${result}-->
+<!--В гет запросе передаются параметры и они используются в контроллере, чтобы дать пользователю какую-то полезную-->
+<!--информацию, мы можем получить из запроса параметры, которые помогут нам искать что-то в базе данных-->
+<!--и пользователю с помощью модели передать вывод из этой базы данных-->
+<!--и показать его с помощью таймлифа на html странице-->
+
+<p th:text="'Result is, ' + ${result} + '!'" />
+
+</body>
+</html>
